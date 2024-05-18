@@ -1,15 +1,32 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React, { useState } from "react";
 
-const TodoInput = () => {
+const TodoInput = (props) => {
+  const { handleAddTodos } = props;
+  const [todoValue, setTodoValue] = useState("");
   return (
     <div>
       <header>
-        <input type="text" placeholder='Enter Todo..' />
-        <button>Add</button>
+        <input
+          value={todoValue}
+          onChange={(e) => {
+            setTodoValue(e.target.value);
+          }}
+          type="text"
+          placeholder="Enter Todo.."
+        />
+
+        <button
+          onClick={() => {
+            handleAddTodos(todoValue);
+            setTodoValue('')
+          }}
+        >
+          Add
+        </button>
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default TodoInput
+export default TodoInput;
