@@ -1,15 +1,22 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 
 const TodoCards = (props) => {
-  const { children } = props;
+  const { children, handleDeleteTodo, index ,handleEditTodo} = props;
 
   return (
     <>
-      <li className='todoItem'>
+      <li className="todoItem">
         {children}
         <div className="todoItem">
-          <i className="fa-regular fa-pen-to-square"></i>
-          <i className="fa-solid fa-trash"></i>
+          <button onClick={() => {
+            handleEditTodo(index)
+          }}>
+            <i className="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button onClick={() => handleDeleteTodo(index)}>
+            <i className="fa-solid fa-trash"></i>
+          </button>
         </div>
       </li>
     </>

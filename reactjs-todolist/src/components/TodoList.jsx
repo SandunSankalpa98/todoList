@@ -9,7 +9,7 @@ const TodoList = (props) => {
             <ul>
                 {todos.map((todo, todoIndex) => {
                     return (
-                        <TodoCards key={todoIndex}>
+                        <TodoCards  {...props} key={todoIndex} index={todoIndex}>
                             <p>{todo}</p>
                         </TodoCards>
                     );
